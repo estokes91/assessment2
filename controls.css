@@ -1,0 +1,19 @@
+#range1, #range2, #range3, #range4, #colorChange{
+    width: 55px;
+    margin:5px;
+}
+
+#numberButton{
+    color: white;
+    background-color: grey;
+    
+    
+}
+
+#randomButton{
+    background-color: pink;
+}
+
+#plusButton{
+    background-color: lightgray;
+}
