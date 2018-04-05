@@ -17,3 +17,17 @@
 #plusButton{
     background-color: lightgray;
 }
+
+.newitems {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position:absolute;
+    height:auto;
+}
+
+.face   {
+    position:relative;
+    display:inline-block;
+    margin:5px;
+}

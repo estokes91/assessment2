@@ -29,24 +29,23 @@ range4.addEventListener("change", function(){
 });
 
 hairImg.addEventListener("click", function(){
-    if (filevalue < 3){
-        filevalue + 1;
-        hairImg.src = "img/hair" + (filevalue+1) + ".png";}
+    var fileNum = Math.floor(Math.random() * 3) + 1;
+    hairImg.src = 'img/hair'+fileNum+'.png';
 });
 
 eyesImg.addEventListener("click", function(){
-    filevalue = 1;
-    eyesImg.src = "img/eyes" + (filevalue+1) + ".png";
+    var fileNum = Math.floor(Math.random() * 3) + 1;
+    eyesImg.src = 'img/eyes'+fileNum+'.png';
 });
 
 noseImg.addEventListener("click", function(){
-    filevalue = 1;
-    noseImg.src = "img/nose" + (filevalue+1) + ".png";
+    var fileNum = Math.floor(Math.random() * 3) + 1;
+    noseImg.src = 'img/nose'+fileNum+'.png';
 });
 
 mouthImg.addEventListener("click", function(){
-    filevalue = 1;
-    mouthImg.src = "img/mouth" + (filevalue+1) + ".png";
+    var fileNum = Math.floor(Math.random() * 3) + 1;
+    mouthImg.src = 'img/mouth'+fileNum+'.png';
 });
 
 document.getElementById("numberButton").addEventListener("click", function(){
@@ -64,35 +63,51 @@ document.getElementById("rangeButton").addEventListener("click", function(){
 });
 
 document.getElementById("plusButton").addEventListener("click", function(){
-    var nDiv = document.createElement('div');
-    displayDiv = document.getElementById("display");
-    displayDiv.appendChild(nDiv);
-    nDiv.style='width:100px;height:100px;left:0;right:0;';
+    var face = document.createElement('div'),
+        fhair = document.createElement('img'),
+        fmouth = document.createElement('img'),
+        fnose = document.createElement('img'),
+        feyes = document.createElement('img');
     
-    img1 = document.createElement("img");
-    img1.className = "items";
-    img1.src="img/hair1.png";
-    img1.style="width:50px;height:50px;position:relative;left:0;right:0;margin:auto;"
-    nDiv.appendChild(img1);
+    face.style.width = '100px';
+    face.style.height = '100px';
     
-    img2 = document.createElement("img");
-    img2.className = "items";
-    img2.style="width:50px;height:50px;position:relative;left:0;right:0;margin:auto;"
-    img2.src="img/eyes1.png";
-    nDiv.appendChild(img2);
+    fhair.src = hairImg.src;
+    fmouth.src = mouthImg.src;
+    fnose.src = noseImg.src;
+    feyes.src = eyesImg.src;
     
-    img3 = document.createElement("img");
-    img3.className = "items";
-    img3.style="width:50px;height:50px;position:relative;left:0;right:0;margin:auto;"
-    img3.src="img/nose1.png";
-    nDiv.appendChild(img3);
+    face.style.backgroundColor = prevDiv.style.backgroundColor;
     
-    img4 = document.createElement("img");
-    img4.className = "items";
-    img4.style="width:50px;height:50px;position:relative;left:0;right:0;margin:auto;"
-    img4.src="img/mouth1.png";
-    nDiv.appendChild(img4);
+    fhair.style.width = hairImg.style.width;
+    fmouth.style.width = mouthImg.style.width;
+    fnose.style.width = noseImg.style.width;
+    feyes.style.width = eyesImg.style.width;
     
+    fhair.style.top = hairImg.style.top;
+    fmouth.style.top = mouthImg.style.top;
+    fnose.style.top = noseImg.style.top;
+    feyes.style.top = eyesImg.style.top;
+    
+    fhair.className = 'newitems';
+    fmouth.className = 'newitems';
+    fnose.className = 'newitems';
+    feyes.className = 'newitems';
+    face.className = 'face';
+    
+    face.appendChild(fhair);
+    face.appendChild(fmouth);
+    face.appendChild(fnose);
+    face.appendChild(feyes);
+    
+    displayDiv.appendChild(face); 
+
+    face.addEventListener('click', function(){
+     
+    displayDiv.removeChild(face);
+    
+    });
+
     
     
 });
